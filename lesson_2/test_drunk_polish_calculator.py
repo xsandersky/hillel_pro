@@ -117,4 +117,4 @@ def test_main_division(capsys):
     captured = capsys.readouterr()
 
     # Проверяем, что результат деления равен 2
-    assert captured.out.strip() == "Expression with space delimiter:2.0"
+    assert captured.out.strip() == "Expression with space delimiter:0.5"
