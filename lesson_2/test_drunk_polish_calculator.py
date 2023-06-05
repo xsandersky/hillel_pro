@@ -44,9 +44,9 @@ def test_op_multiply():
 
 def test_op_divide():
     #given
-    x = 8
-    y = 4
-    expected_result = 2
+    x = 4
+    y = 8
+    expected_result = 2.0
 
     #when
     result = op_divide(x, y)
@@ -105,7 +105,7 @@ def test_main_multiplication(capsys):
 
 def test_main_division(capsys):
     # Входное выражение для тестирования деления
-    user_input = "8 4 /"
+    user_input = "4 8 /"
 
     # Изменяем стандартный ввод, чтобы считать вход пользователя
     sys.stdin = StringIO(user_input)
@@ -116,5 +116,5 @@ def test_main_division(capsys):
     # Захватываем вывод
     captured = capsys.readouterr()
 
-    # Проверяем, что результат деления равен 5
-    assert captured.out.strip() == "Expression with space delimiter:0.5"
+    # Проверяем, что результат деления равен 2
+    assert captured.out.strip() == "Expression with space delimiter:2.0"
