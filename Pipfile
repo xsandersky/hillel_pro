@@ -4,8 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+dataclasses = "*"
+requires = "*"
+isort = "*"
+pytest = "*"
+pytest-html = "*"
+pytest-cov = "*"
+flask = "*"
+requests = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.10"
