@@ -12,6 +12,8 @@ pytest-html = "*"
 pytest-cov = "*"
 flask = "*"
 requests = "*"
+psycopg2-bynary = "*"
+psycopg2 = "*"
 
 [dev-packages]
 black = "*"
