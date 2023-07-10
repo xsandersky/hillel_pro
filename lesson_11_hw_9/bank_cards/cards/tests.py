@@ -62,8 +62,18 @@ class Is_Valid(TestCase):
             "balance": 456,
             "status": "new"}
         
+        card_2 = {"number": "4561-2612-1234-5467",
+            "cvv": 456,
+            "issue": "11/11",
+            "expiration": "11/21",
+            "balance": 456,
+            "status": "new"}
+        
         #when
         answer = CardView.is_valid(card, '4561-2612-1234-5467')
+        answer2 = CardView.is_valid(card_2, '4561-2612-1234-5464')
 
         #then
         assert answer == True
+        assert answer2 == False
+
