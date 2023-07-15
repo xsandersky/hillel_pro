@@ -10,3 +10,7 @@ class Card(models.Model):
     expiration = models.CharField(max_length=10)
     balance = models.IntegerField()
     status = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'{str(self.id)}: Number: {self.number} ||| CVV: {self.cvv}||| Issue: {self.issue}||| \
+            Expiration: {self.expiration}||| balance: {self.balance}||| status: {self.status}'

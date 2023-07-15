@@ -1,0 +1,16 @@
+{% extends "cards/card_page.html" %}
+{% block create_card_form %}
+<form action="{% url 'create_card_form' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Let's create card</h1></legend>
+        <input type="text" name="number", placeholder="Номер карты">
+        <input type="text" name="cvv", placeholder="CVV">
+        <input type="text" name="issue", placeholder="Дата выдачи">
+        <input type="text" name="expiration", placeholder="Дата экспирации">
+        <input type="text" name="balance", placeholder="Баланс">
+        <input type="text" name="status", placeholder="Статус">
+    </fieldset>
+    <input type="submit" value="Create">
+</form>
+{% endblock %}
