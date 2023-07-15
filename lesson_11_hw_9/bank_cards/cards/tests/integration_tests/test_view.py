@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from cards.models import Card
-from cards.views.cards_views import CardView
+from cards.views.cards_views import is_valid
 
 
 # Create your tests here.
@@ -15,7 +15,7 @@ class CardsTest(TestCase):
         url = reverse("cards")
 
         #when
-        responce = self.client.get(url).json()
+        responce = self.client.get(url, HTTP_ACCEPT='application/json').json()
 
         #then
         self.assertEquals(responce, {"cards": [{"id": str(card.id),
@@ -70,10 +70,9 @@ class Is_Valid(TestCase):
             "status": "new"}
         
         #when
-        answer = CardView.is_valid(card, '4561-2612-1234-5467')
-        answer2 = CardView.is_valid(card_2, '4561-2612-1234-5464')
+        answer = is_valid(card, '4561-2612-1234-5467')
+        answer2 = is_valid(card_2, '4561-2612-1234-5464')
 
         #then
         assert answer == True
         assert answer2 == False
-
