@@ -1,8 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from .views.cards_views import CardView, create_card_view
+from .views.card_viewset import CardViewSet
+from .views.card_view import activate_card, deactivate_card
+
+router = routers.DefaultRouter()
+router.register(r'', CardViewSet)
 
 urlpatterns = [
-    path('', CardView.as_view(http_method_names=['get', 'post']), name='cards'),
-    path('create', create_card_view, name='create_card_form'),
+    path('', include(router.urls)),
+    path('activate/<str:pk>', activate_card),
+    path('deactivate/<str:pk>', deactivate_card),
 ]
