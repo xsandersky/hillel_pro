@@ -8,5 +8,5 @@ class TaskView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        result = activate_card.apply_async(args=[request.data['id']])
-        return Response(data=str(result), status=204)
+        activate_card.apply_async(args=[request.data['id']])
+        return "Success"

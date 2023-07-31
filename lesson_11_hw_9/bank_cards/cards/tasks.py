@@ -7,7 +7,7 @@ from cards.models import Card
 
 @shared_task
 def activate_card(pk:str):
-    time.sleep(1)
+    time.sleep(120)
     Card.objects.filter(pk=pk).update(status='active')
     return 'Success'
 
