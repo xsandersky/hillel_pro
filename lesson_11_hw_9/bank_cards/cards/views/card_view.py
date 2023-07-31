@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from rest_framework import status
 
 from cards.models import Card
 
@@ -12,8 +13,8 @@ def object_exists(model, request, pk):
 def activate_card(request, pk):
     card = object_exists(model=Card, request=request, pk=pk)
     if not card:
-        return JsonResponse({}, status='active')
-
+        return JsonResponse({'Error': 'HTTP_400_BAD_REQUEST'}, status=status.HTTP_400_BAD_REQUEST)
+    
     Card.activate_card(pk)
     return JsonResponse({'success': True})
 
@@ -21,5 +22,9 @@ def activate_card(request, pk):
 def deactivate_card(request, pk):
     card = object_exists(model=Card, request=request, pk=pk)
     if not card:
-        return JsonResponse({}, status='block')
+        return JsonResponse({'Error': 'HTTP_400_BAD_REQUEST'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    Card.deactivate_card(pk)
+    return JsonResponse({'success': True})
+
 

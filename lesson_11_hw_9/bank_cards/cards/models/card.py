@@ -14,8 +14,8 @@ class Card(models.Model):
     title = models.CharField(max_length=30, blank=True, default='new')
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def activate_card(pk):
+    def activate_card(self, pk):
         Card.objects.filter(pk=pk).update(status='active')
 
-    def deactivate_card(pk):
-        Card.objects.filter(pk=pk).update(status='block')
+    def deactivate_card(self, pk):
+        Card.objects.filter(pk=pk).update(status='deactive')
