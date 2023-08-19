@@ -14,7 +14,7 @@ def test_cli(loop, app):
 
 @pytest.fixture
 def mock_httpx_get():
-    with patch('calculator.calculator_app.httpx.AsyncClient.get') as mock_get:
+    with patch('calculator.server.httpx.AsyncClient.get') as mock_get:
         yield mock_get
 
 @pytest.fixture
