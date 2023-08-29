@@ -1,0 +1,12 @@
+read_database:
+  host: 127.0.0.1
+  port: 5432
+  username: vitalii
+  password: 1325
+  db_name: books
+write_database:
+  host: 127.0.0.1
+  port: 5432
+  username: vitalii
+  password: 1325
+  db_name: books
