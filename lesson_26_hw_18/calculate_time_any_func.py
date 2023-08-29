@@ -2,6 +2,9 @@ import asyncio
 from functools import wraps
 from time import perf_counter
 
+async def my_coroutine():
+    await asyncio.sleep(1)
+
 
 def measure_time(func):
     if type(func) is type(lambda: None):
