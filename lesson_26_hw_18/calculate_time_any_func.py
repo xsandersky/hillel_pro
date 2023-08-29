@@ -19,7 +19,7 @@ def measure_time(func):
             start_time = perf_counter()
             result = await func(*args, **kwargs)
             end_time = perf_counter()
-            print(f'Длительность функции {func.__name__} = {end_time - start_time:0.9f}')
+            print(f'Длительность асинхронной функции {func.__name__} = {end_time - start_time:0.9f}')
             return result
         return main_coroutine
 
