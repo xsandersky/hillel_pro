@@ -3,10 +3,6 @@ from functools import wraps
 from time import perf_counter
 
 
-async def take_coroutine_type():
-    await asyncio.sleep(1)
-
-
 def measure_time(func):
     if type(func) is type(lambda: None):
         @wraps(func)
@@ -17,7 +13,8 @@ def measure_time(func):
             print(f'Длительность функции {func.__name__} = {end_time - start_time:0.9f}')
             return result
         return main_func
-    elif type(func) is type(take_coroutine_type()):
+
+    elif asyncio.iscoroutinefunction(func):
         @wraps(func)
         async def main_coroutine(*args, **kwargs):
             start_time = perf_counter()
